@@ -90,14 +90,14 @@ This pipeline **does not deploy** to a server. CD here means the image is publis
 Image name:
 
 ```text
-ghcr.io/sugataray/<repo-name>:latest
+ghcr.io/sugataray/qr_generator_githubaction:latest
 ```
 
-If this repository is named `protfolio`:
+Docker image names cannot end with `_`. The GitHub repo is `qr_generator_githubaction_`, so the pipeline strips the trailing underscore.
 
 ```bash
-docker pull ghcr.io/sugataray/protfolio:latest
-docker run -p 8080:80 ghcr.io/sugataray/protfolio:latest
+docker pull ghcr.io/sugataray/qr_generator_githubaction:latest
+docker run -p 8080:80 ghcr.io/sugataray/qr_generator_githubaction:latest
 ```
 
 If the package is private, log in first with a Personal Access Token that has `read:packages`:
