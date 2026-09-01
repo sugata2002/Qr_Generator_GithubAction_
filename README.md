@@ -66,7 +66,7 @@ push / pull request
   GitHub Actions (ubuntu-latest)
         │
         ├─ checkout the repo
-        ├─ name the image  ghcr.io/sugataray/<repo>:latest
+        ├─ name the image  ghcr.io/<repo-owner>/qr_generator_githubaction:latest
         ├─ docker build
         │
         ├─ pull request  → stop here (build only)
@@ -89,21 +89,17 @@ This pipeline **does not deploy** to a server. CD here means the image is publis
 
 Image name:
 
-```text
-ghcr.io/sugataray/qr_generator_githubaction:latest
-```
-
-Docker image names cannot end with `_`. The GitHub repo is `qr_generator_githubaction_`, so the pipeline strips the trailing underscore.
+The image owner is whoever owns the GitHub repo (`github.repository_owner`). Right now that is the user `sugata2002`. After you transfer the repo to the org `sugataray`, the image becomes `ghcr.io/sugataray/qr_generator_githubaction:latest`.
 
 ```bash
-docker pull ghcr.io/sugataray/qr_generator_githubaction:latest
-docker run -p 8080:80 ghcr.io/sugataray/qr_generator_githubaction:latest
+docker pull ghcr.io/sugata2002/qr_generator_githubaction:latest
+docker run -p 8080:80 ghcr.io/sugata2002/qr_generator_githubaction:latest
 ```
 
 If the package is private, log in first with a Personal Access Token that has `read:packages`:
 
 ```bash
-echo YOUR_PAT | docker login ghcr.io -u sugataray --password-stdin
+echo YOUR_PAT | docker login ghcr.io -u sugata2002 --password-stdin
 ```
 
 ## Project layout
