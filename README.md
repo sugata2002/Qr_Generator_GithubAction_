@@ -66,7 +66,7 @@ push / pull request
   GitHub Actions (ubuntu-latest)
         │
         ├─ checkout the repo
-        ├─ name the image  ghcr.io/<repo-owner>/qr_generator_githubaction:latest
+        ├─ name the image  ghcr.io/sugata2002/qr_generator_githubaction:latest
         ├─ docker build
         │
         ├─ pull request  → stop here (build only)
@@ -89,7 +89,9 @@ This pipeline **does not deploy** to a server. CD here means the image is publis
 
 Image name:
 
-The image owner is whoever owns the GitHub repo (`github.repository_owner`). Right now that is the user `sugata2002`. After you transfer the repo to the org `sugataray`, the image becomes `ghcr.io/sugataray/qr_generator_githubaction:latest`.
+```text
+ghcr.io/sugata2002/qr_generator_githubaction:latest
+```
 
 ```bash
 docker pull ghcr.io/sugata2002/qr_generator_githubaction:latest
